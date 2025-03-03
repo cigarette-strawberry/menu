@@ -16,6 +16,7 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
     AutoImport({
+      imports: ['vue'],
       resolvers: [ElementPlusResolver()]
     }),
     Components({
