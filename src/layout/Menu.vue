@@ -64,8 +64,10 @@ const handleCollapse = () => {
 }
 
 .title {
+  width: 199px;
   height: 60px;
   line-height: 60px;
+  border-right: 1px solid #f0f0f0;
 }
 
 .collapse {
