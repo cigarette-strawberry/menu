@@ -1,33 +1,14 @@
-# menu
+# 想法
 
-This template should help get you started developing with Vue 3 in Vite.
+## 应该做整体的拆分
 
-## Recommended IDE Setup
+### 一
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+左上角 logo 区
+菜单(横向和竖向 两种菜单)
+左下角 折叠和展开
 
-## Type Support for `.vue` Imports in TS
+### 二
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
+顶部面包屑(竖向菜单时展示)
+标签页
