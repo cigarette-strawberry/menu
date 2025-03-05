@@ -3,19 +3,10 @@ defineOptions({
   name: ''
 });
 
-const editableTabsValue = ref('2');
-const editableTabs = ref([
-  {
-    title: 'Tab 1',
-    name: '1',
-    content: 'Tab 1 content'
-  },
-  {
-    title: 'Tab 2',
-    name: '2',
-    content: 'Tab 2 content'
-  }
-]);
+const Tabs = defineAsyncComponent({
+  loader: () => import('@/layout/Tabs.vue'),
+  delay: 200
+});
 </script>
 
 <template>
@@ -28,10 +19,7 @@ const editableTabs = ref([
       <el-breadcrumb-item>promotion list</el-breadcrumb-item>
       <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
     </el-breadcrumb>
-
-    <el-tabs v-model="editableTabsValue" class="tabs">
-      <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name" />
-    </el-tabs>
+    <Tabs />
   </div>
 </template>
 
@@ -46,16 +34,5 @@ const editableTabs = ref([
   align-items: center;
   overflow: hidden;
   padding-left: 20px;
-}
-
-.tabs {
-  height: 34px;
-  box-shadow: 0 0 1px #888;
-  padding-left: 20px;
-}
-
-.tabs >>> .el-tabs__header {
-  height: 34px !important;
-  margin: 0;
 }
 </style>

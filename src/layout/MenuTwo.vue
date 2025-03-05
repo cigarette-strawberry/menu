@@ -4,6 +4,11 @@ defineOptions({
   name: ''
 });
 
+const Tabs = defineAsyncComponent({
+  loader: () => import('@/layout/Tabs.vue'),
+  delay: 200
+});
+
 const isCollapse = ref(false);
 
 const emits = defineEmits<{
@@ -17,9 +22,9 @@ const handleCollapse = () => {
 </script>
 
 <template>
-  <div>
+  <div style="display: flex">
     <div class="title">logo</div>
-    <el-menu :collapse="isCollapse" default-active="2" background-color="#fff" text-color="#000" class="el-menu-vertical">
+    <el-menu :collapse="isCollapse" mode="horizontal" default-active="2" background-color="#fff" text-color="#000" class="el-menu-vertical">
       <el-sub-menu index="1">
         <template #title>
           <el-icon><Location /></el-icon>
@@ -50,17 +55,13 @@ const handleCollapse = () => {
         <span>Navigator Four</span>
       </el-menu-item>
     </el-menu>
-    <div class="collapse">
-      <el-tooltip :content="isCollapse ? '点击展开' : '点击折叠'" placement="right">
-        <el-icon @click="handleCollapse" class="box-item"><Expand v-if="isCollapse" /><Fold v-else /></el-icon>
-      </el-tooltip>
-    </div>
   </div>
+  <div><Tabs /></div>
 </template>
 
 <style scoped>
 .el-menu-vertical {
-  height: calc(100vh - 48px - 40px);
+  height: 48px;
 }
 
 .title {
@@ -68,15 +69,5 @@ const handleCollapse = () => {
   height: 48px;
   line-height: 48px;
   border-right: 1px solid #f0f0f0;
-}
-
-.collapse {
-  height: 40px;
-  line-height: 40px;
-}
-
-.box-item {
-  cursor: pointer;
-  margin-left: 15px;
 }
 </style>
