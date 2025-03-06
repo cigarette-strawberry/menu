@@ -1,35 +1,33 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
-const Menu = defineAsyncComponent({
-  loader: () => import('@/layout/Menu.vue'),
-  delay: 200
-});
-const Header = defineAsyncComponent({
-  loader: () => import('@/layout/Header.vue'),
-  delay: 200
+import Header from '@/layout/modules/Header.vue';
+import { ref } from 'vue';
+
+import style from '@/styles/css/index.module.css';
+
+defineOptions({
+  name: ''
 });
 
-const asideWidth = ref('200px');
-
-const onCollapse = (isCollapse: boolean) => {
-  asideWidth.value = isCollapse ? '64px' : '200px';
-};
+const showHeader = ref(true);
+const showTab = ref(true);
+const showSider = ref(true);
+const showMobileSider = ref(true);
+const showFooter = ref(true);
 </script>
 
 <template>
-  <el-container class="container">
-    <el-aside :width="asideWidth">
-      <Menu @collapse="onCollapse" />
-    </el-aside>
-    <el-container>
-      <el-header height="82px" style="padding: 0"><Header /></el-header>
-      <el-main style="background-color: #f0f2f5">Main</el-main>
-    </el-container>
-  </el-container>
+  <div style="position: relative; height: 100vh">
+    <div>
+      <template v-if="showHeader">
+        <Header :class="style['layout-header']" />
+      </template>
+      <template v-if="showTab"></template>
+      <template v-if="showSider"></template>
+      <template v-if="showMobileSider"></template>
+
+      <template v-if="showFooter"></template>
+    </div>
+  </div>
 </template>
 
-<style scoped>
-.container {
-  height: 100vh;
-}
-</style>
+<style lang="scss" scoped></style>

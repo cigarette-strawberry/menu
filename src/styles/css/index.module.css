@@ -1,0 +1,7 @@
+:root {
+  --cigarette-header-height: 56px;
+}
+
+.layout-header {
+  height: var(--cigarette-header-height);
+}
