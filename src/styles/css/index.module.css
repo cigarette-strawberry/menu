@@ -1,7 +1,33 @@
 :root {
   --cigarette-header-height: 56px;
+  --cigarette-header-z-index: 97;
+  --cigarette-tab-height: 44px;
+  --cigarette-tab-z-index: 95;
+  --cigarette-sider-width: 220px;
+  --cigarette-sider-collapsed-width: 64px;
+  --cigarette-sider-z-index: 99;
+  --cigarette-mobile-sider-z-index: 0;
+  --cigarette-footer-height: 48px;
+  --cigarette-footer-z-index: 95;
+}
+
+.left-gap {
+  padding-left: var(--cigarette-sider-width);
 }
 
 .layout-header {
   height: var(--cigarette-header-height);
+}
+
+.layout-tab {
+  top: var(--cigarette-header-height);
+  height: var(--cigarette-tab-height);
+}
+
+.layout-sider {
+  width: var(--cigarette-sider-width);
+}
+
+.layout-footer {
+  height: var(--cigarette-footer-height);
 }
