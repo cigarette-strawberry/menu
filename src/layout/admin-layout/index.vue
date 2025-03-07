@@ -7,15 +7,28 @@ defineOptions({
   name: ''
 });
 
+interface Props {
+  siderCollapse?: boolean;
+}
+
+const { siderCollapse = false } = defineProps<Props>();
+
+interface Emits {
+  /** Update siderCollapse */
+  (e: 'update:siderCollapse', collapse: boolean): void;
+}
+
+const emit = defineEmits<Emits>();
+
 const showHeader = ref(true);
 const showTab = ref(true);
 const showSider = ref(true);
-const showMobileSider = ref(true);
+const showMobileSider = ref(false);
 const showFooter = ref(true);
 
 // css
 const leftGapClass = computed(() => {
-  return style['left-gap'];
+  return siderCollapse ? style['left-gap_collapsed'] : style['left-gap'];
 });
 
 const headerLeftGapClass = computed(() => leftGapClass.value);
@@ -23,32 +36,56 @@ const headerLeftGapClass = computed(() => leftGapClass.value);
 const footerLeftGapClass = computed(() => {
   return leftGapClass.value;
 });
+
+const siderPaddingClass = computed(() => {
+  let cls = '';
+
+  if (showHeader.value && !headerLeftGapClass.value) {
+    cls += style['sider-padding-top'];
+  }
+  if (showFooter.value && !footerLeftGapClass.value) {
+    cls += ` ${style['sider-padding-bottom']}`;
+  }
+
+  return cls;
+});
+
+function handleClickMask() {
+  emit('update:siderCollapse', true);
+}
 </script>
 
 <template>
   <div class="common commonClass">
-    <div class="commonClass">
+    <div class="overflow-y commonClass">
       <template v-if="showHeader">
         <header :class="[style['layout-header'], headerLeftGapClass]" class="layout-header commonClass">
           <slot name="header"></slot>
         </header>
+        <div :class="[style['layout-header-placement']]" class="overflow"></div>
       </template>
 
       <template v-if="showTab">
         <div :class="[style['layout-tab'], leftGapClass]" class="layout-tab commonClass">
           <slot name="tab"></slot>
         </div>
+        <div :class="[style['layout-tab-placement']]" class="overflow"></div>
       </template>
 
       <template v-if="showSider">
-        <aside :class="[style['layout-sider']]" class="layout-sider commonClass">
+        <aside :class="[siderPaddingClass, siderCollapse ? style['layout-sider_collapsed'] : style['layout-sider']]" class="layout-sider commonClass">
           <slot name="sider"></slot>
         </aside>
       </template>
 
-      <!-- <template v-if="showMobileSider"></template> -->
+      <template v-if="showMobileSider">
+        <aside :class="[style['layout-mobile-sider'], siderCollapse ? 'overflow' : style['layout-sider']]" class="layout-mobile-sider commonClass">
+          <slot name="sider"></slot>
+        </aside>
+        <div v-show="!siderCollapse" :class="[style['layout-mobile-sider-mask']]" class="layout-mobile-sider-mask" @click="handleClickMask"></div>
+      </template>
 
-      <main :class="[leftGapClass]" class="layout-main commonClass">
+      <main :class="[leftGapClass]" class="overflow-y commonClass">
         <slot></slot>
       </main>
 
@@ -66,6 +103,12 @@ const footerLeftGapClass = computed(() => {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+.overflow {
+  overflow: hidden;
+}
+.overflow-y {
+  overflow-y: auto;
 }
 .common {
   position: relative;
@@ -91,8 +134,22 @@ const footerLeftGapClass = computed(() => {
     height: 100%;
   }
 
-  .layout-main {
-    overflow-y: auto;
+  .layout-mobile-sider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: white;
+  }
+
+  .layout-mobile-sider-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   .layout-footer {

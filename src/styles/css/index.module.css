@@ -17,17 +17,51 @@
 
 .layout-header {
   height: var(--cigarette-header-height);
+  z-index: var(--cigarette-header-z-index);
+  z-index: var(--cigarette-header-z-index);
+}
+
+.layout-header-placement {
+  height: var(--cigarette-header-height);
 }
 
 .layout-tab {
   top: var(--cigarette-header-height);
   height: var(--cigarette-tab-height);
+  z-index: var(--cigarette-tab-z-index);
+}
+
+.layout-tab-placement {
+  height: var(--cigarette-tab-height);
 }
 
 .layout-sider {
   width: var(--cigarette-sider-width);
+  z-index: var(--cigarette-sider-z-index);
+}
+
+.layout-mobile-sider {
+  z-index: var(--cigarette-sider-z-index);
+}
+
+.layout-mobile-sider-mask {
+  z-index: var(--cigarette-mobile-sider-z-index);
+}
+
+.layout-sider_collapsed {
+  width: var(--cigarette-sider-collapsed-width);
+  z-index: var(--cigarette-sider-z-index);
 }
 
 .layout-footer {
   height: var(--cigarette-footer-height);
+  z-index: var(--cigarette-footer-z-index);
+}
+
+.sider-padding-top {
+  padding-top: var(--cigarette-header-height);
+}
+
+.sider-padding-bottom {
+  padding-bottom: var(--cigarette-footer-height);
 }
