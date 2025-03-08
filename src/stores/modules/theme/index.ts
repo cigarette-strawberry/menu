@@ -55,6 +55,15 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
   }
 
   /**
+   * Set theme layout
+   *
+   * @param mode Theme layout mode
+   */
+  function setThemeLayout(mode: 'vertical' | 'horizontal' | 'vertical-mix' | 'horizontal-mix') {
+    settings.value.layout.mode = mode;
+  }
+
+  /**
    * Set layout reverse horizontal mix
    *
    * @param reverse Reverse horizontal mix

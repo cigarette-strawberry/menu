@@ -3,6 +3,7 @@ defineOptions({
   name: ''
 });
 import Logo from '@/layout/modules/Logo.vue';
+import { GLOBAL_SIDER_MENU_ID } from '@/constants/app.ts';
 import { useThemeStore } from '@/stores/modules/theme';
 import { computed } from 'vue';
 const themeStore = useThemeStore();
@@ -15,10 +16,18 @@ const menuWrapperClass = computed(() => (showLogo.value ? 'flex-1-hidden' : 'h-f
 </script>
 
 <template>
-  <div>
+  <div class="layout-Sider">
     <Logo v-if="true" :show-title="true" :style="{ height: themeStore.header.height + 'px' }" />
-    <div id="__GLOBAL_SIDER_MENU__"></div>
+    <div :id="GLOBAL_SIDER_MENU_ID"></div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.layout-Sider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+</style>

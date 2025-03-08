@@ -3,7 +3,7 @@ defineOptions({
   name: ''
 });
 import { useThemeStore } from '@/stores/modules/theme';
-
+import { GLOBAL_HEADER_MENU_ID } from '@/constants/app.ts';
 import Logo from '@/layout/modules/Logo.vue';
 import Breadcrumb from '@/layout/modules/Breadcrumb.vue';
 
@@ -24,7 +24,7 @@ const themeStore = useThemeStore();
 <template>
   <div class="layout-Header">
     <Logo v-if="showLogo" class="layout-Logo" :style="{ width: themeStore.sider.width + 'px' }" />
-    <div v-if="showMenu" id="__GLOBAL_HEADER_MENU__" class="layout-Header __GLOBAL_HEADER_MENU__"></div>
+    <div v-if="showMenu" :id="GLOBAL_HEADER_MENU_ID" class="layout-Header __GLOBAL_HEADER_MENU__"></div>
     <div v-else class="layout-Header __GLOBAL_HEADER_MENU__">
       <Breadcrumb class="layout-Breadcrumb" />
     </div>

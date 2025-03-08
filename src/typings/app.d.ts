@@ -23,7 +23,7 @@ declare namespace App {
       /** Layout */
       layout: {
         /** Layout mode */
-        mode: UnionKey.ThemeLayoutMode;
+        mode: 'vertical' | 'horizontal' | 'vertical-mix' | 'horizontal-mix';
         /** Scroll mode */
         scrollMode: UnionKey.ThemeScrollMode;
         /**
