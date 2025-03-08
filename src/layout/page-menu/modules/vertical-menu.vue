@@ -11,8 +11,6 @@ defineOptions({ name: 'VerticalMenu' });
 const route = useRoute();
 const appStore = useAppStore();
 const routeStore = useRouteStore();
-
-console.log(routeStore.menus);
 </script>
 
 <template>

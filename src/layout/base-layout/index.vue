@@ -9,6 +9,7 @@ import Sider from '@/layout/modules/Sider.vue';
 import Footer from '@/layout/modules/Footer.vue';
 import Content from '@/layout/modules/Content.vue';
 import Drawer from '@/layout/modules/Drawer.vue';
+import { defineAsyncComponent } from 'vue';
 
 const Menu = defineAsyncComponent(() => import('@/layout/modules/Menu.vue'));
 </script>
@@ -30,7 +31,7 @@ const Menu = defineAsyncComponent(() => import('@/layout/modules/Menu.vue'));
 
       <Menu />
       <Content />
-      <Drawer />
+      <!-- <Drawer /> -->
 
       <template #footer>
         <Footer />
