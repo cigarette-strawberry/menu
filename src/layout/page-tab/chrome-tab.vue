@@ -74,14 +74,14 @@ defineSlots<Slots>();
     width: 100%;
     height: 100%;
     z-index: -1;
+  }
 
-    .chrome-tab-divider {
-      position: absolute;
-      right: 7px;
-      height: 16px;
-      width: 1px;
-      background: #1f2225;
-    }
+  .chrome-tab-divider {
+    position: absolute;
+    right: 7px;
+    height: 16px;
+    width: 1px;
+    background: #1f2225;
   }
 }
 </style>

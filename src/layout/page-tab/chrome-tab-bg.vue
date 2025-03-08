@@ -5,7 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  <svg class="size-full">
+  <svg class="svg">
     <defs>
       <symbol id="geometry-left" viewBox="0 0 214 36">
         <path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z" />
@@ -28,4 +28,9 @@ defineOptions({
   </svg>
 </template>
 
-<style scoped></style>
+<style scoped>
+.svg {
+  width: 100%;
+  height: 100%;
+}
+</style>

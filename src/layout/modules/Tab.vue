@@ -138,6 +138,7 @@ const tabs = reactive<App.Global.Tab[]>([
         max-width: 240px;
         text-overflow: ellipsis;
         white-space: nowrap;
+        overflow: hidden;
       }
     }
   }
