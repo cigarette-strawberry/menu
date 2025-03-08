@@ -7,9 +7,10 @@ import Header from '@/layout/modules/Header.vue';
 import Tab from '@/layout/modules/Tab.vue';
 import Sider from '@/layout/modules/Sider.vue';
 import Footer from '@/layout/modules/Footer.vue';
-import Menu from '@/layout/modules/Menu.vue';
 import Content from '@/layout/modules/Content.vue';
 import Drawer from '@/layout/modules/Drawer.vue';
+
+const Menu = defineAsyncComponent(() => import('@/layout/modules/Menu.vue'));
 </script>
 
 <template>
