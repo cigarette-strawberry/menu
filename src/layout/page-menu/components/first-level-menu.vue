@@ -52,18 +52,21 @@ function toggleSiderCollapse() {
 
 <template>
   <!-- define component: MixMenuItem -->
-  <div
-    v-for="menu in menus"
-    class="mx-4px mb-6px flex-col-center cursor-pointer rounded-8px bg-transparent px-4px py-8px transition-300 hover:bg-[rgb(0,0,0,0.08)]"
-    :class="{
-      'text-primary selected-mix-menu': menu.key === activeMenuKey,
-      'text-white:65 hover:text-white': inverted,
-      '!text-white !bg-primary': menu.key === activeMenuKey && inverted
-    }">
-    <component :is="menu.icon" :class="[siderCollapse ? 'text-icon-small' : 'text-icon-large']" />
-    <p class="w-full ellipsis-text text-center text-12px transition-height-300" :class="[siderCollapse ? 'h-0 pt-0' : 'h-20px pt-4px']">
-      {{ menu.label }}
-    </p>
+  <div>
+    <div
+      v-for="menu in menus"
+      @click="handleClickMixMenu(menu)"
+      class="mx-4px mb-6px flex-col-center cursor-pointer rounded-8px bg-transparent px-4px py-8px transition-300 hover:bg-[rgb(0,0,0,0.08)]"
+      :class="{
+        'text-primary selected-mix-menu': menu.key === activeMenuKey,
+        'text-white:65 hover:text-white': inverted,
+        '!text-white !bg-primary': menu.key === activeMenuKey && inverted
+      }">
+      <component :is="menu.icon" :class="[siderCollapse ? 'text-icon-small' : 'text-icon-large']" />
+      <p class="w-full ellipsis-text text-center text-12px transition-height-300" :class="[siderCollapse ? 'h-0 pt-0' : 'h-20px pt-4px']">
+        {{ menu.label }}
+      </p>
+    </div>
   </div>
   <!-- define component end: MixMenuItem -->
 

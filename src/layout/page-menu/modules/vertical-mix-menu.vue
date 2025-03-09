@@ -22,6 +22,9 @@ const routeStore = useRouteStore();
 const inverted = computed(() => !themeStore.darkMode && themeStore.sider.inverted);
 
 const activeFirstLevelMenuKey = ref('');
+function handleSelectMixMenu(menu: App.Global.Menu) {
+  activeFirstLevelMenuKey.value = menu.key;
+}
 
 const childLevelMenus = computed<App.Global.Menu[]>(() => routeStore.menus.find(menu => menu.key === activeFirstLevelMenuKey.value)?.children || []);
 
@@ -42,10 +45,11 @@ const allMenus = computed<App.Global.Menu[]>(() => routeStore.menus);
         :active-menu-key="activeFirstLevelMenuKey"
         :inverted="inverted"
         :dark-mode="themeStore.darkMode"
+        @select="handleSelectMixMenu"
         :theme-color="themeStore.themeColor">
         <GlobalLogo :show-title="false" :style="{ height: themeStore.header.height + 'px' }" />
       </FirstLevelMenu>
-      <div class="relative h-full transition-width-300" :style="{ width: hasChildMenus ? themeStore.sider.mixChildMenuWidth + 'px' : '0px' }">
+      <div class="relative h-full transition-width-300" :style="{ width: '200px' }">
         <div
           class="absolute-lt h-full flex-col-stretch nowrap-hidden shadow-sm transition-all-300"
           :inverted="inverted"

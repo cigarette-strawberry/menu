@@ -18,6 +18,10 @@ const routeStore = useRouteStore();
 
 const activeFirstLevelMenuKey = ref('');
 
+function handleSelectMixMenu(menu: App.Global.Menu) {
+  activeFirstLevelMenuKey.value = menu.key;
+}
+
 const childLevelMenus = computed<App.Global.Menu[]>(() => routeStore.menus.find(menu => menu.key === activeFirstLevelMenuKey.value)?.children || []);
 
 const allMenus = computed<App.Global.Menu[]>(() => routeStore.menus);
@@ -30,7 +34,12 @@ const allMenus = computed<App.Global.Menu[]>(() => routeStore.menus);
     </ElMenu>
   </Teleport>
   <Teleport :to="`#${GLOBAL_SIDER_MENU_ID}`">
-    <FirstLevelMenu :menus="allMenus" :active-menu-key="activeFirstLevelMenuKey" :dark-mode="themeStore.darkMode" :theme-color="themeStore.themeColor" />
+    <FirstLevelMenu
+      :menus="allMenus"
+      @select="handleSelectMixMenu"
+      :active-menu-key="activeFirstLevelMenuKey"
+      :dark-mode="themeStore.darkMode"
+      :theme-color="themeStore.themeColor" />
   </Teleport>
 </template>
 
