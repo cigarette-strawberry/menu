@@ -46,19 +46,17 @@ const allMenus = computed<App.Global.Menu[]>(() => routeStore.menus);
         <GlobalLogo :show-title="false" :style="{ height: themeStore.header.height + 'px' }" />
       </FirstLevelMenu>
       <div class="relative h-full transition-width-300" :style="{ width: hasChildMenus ? themeStore.sider.mixChildMenuWidth + 'px' : '0px' }">
-        <DarkModeContainer
+        <div
           class="absolute-lt h-full flex-col-stretch nowrap-hidden shadow-sm transition-all-300"
           :inverted="inverted"
           :style="{ width: showDrawer ? themeStore.sider.mixChildMenuWidth + 'px' : '0px' }">
           <header class="flex-y-center justify-between px-12px" :style="{ height: themeStore.header.height + 'px' }">
             <h2 class="text-16px text-primary font-bold">Logo</h2>
           </header>
-          <SimpleScrollbar>
-            <ElMenu mode="vertical">
-              <MenuItem v-for="item in childLevelMenus" :key="item.key" :item="item" :index="item.key" />
-            </ElMenu>
-          </SimpleScrollbar>
-        </DarkModeContainer>
+          <ElMenu mode="vertical">
+            <MenuItem v-for="item in childLevelMenus" :key="item.key" :item="item" :index="item.key" />
+          </ElMenu>
+        </div>
       </div>
     </div>
   </Teleport>

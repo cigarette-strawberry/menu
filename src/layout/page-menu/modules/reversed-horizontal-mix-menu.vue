@@ -36,11 +36,9 @@ const childLevelMenus = computed<App.Global.Menu[]>(() => routeStore.menus.find(
     </ElMenu>
   </Teleport>
   <Teleport :to="`#${GLOBAL_SIDER_MENU_ID}`">
-    <SimpleScrollbar>
-      <ElMenu mode="vertical">
-        <MenuItem v-for="item in childLevelMenus" :key="item.key" :item="item" :index="item.key" />
-      </ElMenu>
-    </SimpleScrollbar>
+    <ElMenu mode="vertical">
+      <MenuItem v-for="item in childLevelMenus" :key="item.key" :item="item" :index="item.key" />
+    </ElMenu>
   </Teleport>
 </template>
 

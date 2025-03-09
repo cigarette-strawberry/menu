@@ -61,6 +61,367 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
   /** Global menus */
   const menus = ref<App.Global.Menu[]>([
     {
+      key: 'home',
+      label: '首页',
+      i18nKey: 'route.home',
+      routeKey: 'home',
+      routePath: '/home'
+    },
+    {
+      key: 'document',
+      label: '文档',
+      i18nKey: 'route.document',
+      routeKey: 'document',
+      routePath: '/document',
+      children: [
+        {
+          key: 'document_project',
+          label: '项目文档',
+          i18nKey: 'route.document_project',
+          routeKey: 'document_project',
+          routePath: '/document/project'
+        },
+        {
+          key: 'document_project-link',
+          label: '项目文档(外链)',
+          i18nKey: 'route.document_project-link',
+          routeKey: 'document_project-link',
+          routePath: '/document/project-link'
+        },
+        {
+          key: 'document_vue',
+          label: 'Vue文档',
+          i18nKey: 'route.document_vue',
+          routeKey: 'document_vue',
+          routePath: '/document/vue'
+        },
+        {
+          key: 'document_vite',
+          label: 'Vite文档',
+          i18nKey: 'route.document_vite',
+          routeKey: 'document_vite',
+          routePath: '/document/vite'
+        },
+        {
+          key: 'document_unocss',
+          label: 'UnoCSS文档',
+          i18nKey: 'route.document_unocss',
+          routeKey: 'document_unocss',
+          routePath: '/document/unocss'
+        },
+        {
+          key: 'document_naive',
+          label: 'Naive UI文档',
+          i18nKey: 'route.document_naive',
+          routeKey: 'document_naive',
+          routePath: '/document/naive'
+        },
+        {
+          key: 'document_antd',
+          label: 'Ant Design Vue文档',
+          i18nKey: 'route.document_antd',
+          routeKey: 'document_antd',
+          routePath: '/document/antd'
+        },
+        {
+          key: 'document_element-plus',
+          label: 'Element Plus文档',
+          i18nKey: 'route.document_element-plus',
+          routeKey: 'document_element-plus',
+          routePath: '/document/element-plus'
+        },
+        {
+          key: 'document_alova',
+          label: 'Alova文档',
+          i18nKey: 'route.document_alova',
+          routeKey: 'document_alova',
+          routePath: '/document/alova'
+        }
+      ]
+    },
+    {
+      key: 'function',
+      label: '系统功能',
+      i18nKey: 'route.function',
+      routeKey: 'function',
+      routePath: '/function',
+      children: [
+        {
+          key: 'function_tab',
+          label: '标签页',
+          i18nKey: 'route.function_tab',
+          routeKey: 'function_tab',
+          routePath: '/function/tab'
+        },
+        {
+          key: 'function_hide-child',
+          label: '隐藏子菜单',
+          i18nKey: 'route.function_hide-child',
+          routeKey: 'function_hide-child',
+          routePath: '/function/hide-child'
+        },
+        {
+          key: 'function_request',
+          label: '请求',
+          i18nKey: 'route.function_request',
+          routeKey: 'function_request',
+          routePath: '/function/request'
+        },
+        {
+          key: 'function_toggle-auth',
+          label: '切换权限',
+          i18nKey: 'route.function_toggle-auth',
+          routeKey: 'function_toggle-auth',
+          routePath: '/function/toggle-auth'
+        },
+        {
+          key: 'function_super-page',
+          label: '超级管理员可见',
+          i18nKey: 'route.function_super-page',
+          routeKey: 'function_super-page',
+          routePath: '/function/super-page'
+        }
+      ]
+    },
+    {
+      key: 'exception',
+      label: '异常页',
+      i18nKey: 'route.exception',
+      routeKey: 'exception',
+      routePath: '/exception',
+      children: [
+        {
+          key: 'exception_403',
+          label: '403',
+          i18nKey: 'route.exception_403',
+          routeKey: 'exception_403',
+          routePath: '/exception/403'
+        },
+        {
+          key: 'exception_404',
+          label: '404',
+          i18nKey: 'route.exception_404',
+          routeKey: 'exception_404',
+          routePath: '/exception/404'
+        },
+        {
+          key: 'exception_500',
+          label: '500',
+          i18nKey: 'route.exception_500',
+          routeKey: 'exception_500',
+          routePath: '/exception/500'
+        }
+      ]
+    },
+    {
+      key: 'alova',
+      label: 'alova示例',
+      i18nKey: 'route.alova',
+      routeKey: 'alova',
+      routePath: '/alova',
+      children: [
+        {
+          key: 'alova_request',
+          label: 'alova请求',
+          i18nKey: 'route.alova_request',
+          routeKey: 'alova_request',
+          routePath: '/alova/request'
+        },
+        {
+          key: 'alova_user',
+          label: '用户列表',
+          i18nKey: 'route.alova_user',
+          routeKey: 'alova_user',
+          routePath: '/alova/user'
+        },
+        {
+          key: 'alova_scenes',
+          label: '场景化请求',
+          i18nKey: 'route.alova_scenes',
+          routeKey: 'alova_scenes',
+          routePath: '/alova/scenes'
+        }
+      ]
+    },
+    {
+      key: 'plugin',
+      label: '插件示例',
+      i18nKey: 'route.plugin',
+      routeKey: 'plugin',
+      routePath: '/plugin',
+      children: [
+        {
+          key: 'plugin_barcode',
+          label: '条形码',
+          i18nKey: 'route.plugin_barcode',
+          routeKey: 'plugin_barcode',
+          routePath: '/plugin/barcode'
+        },
+        {
+          key: 'plugin_charts',
+          label: '图表',
+          i18nKey: 'route.plugin_charts',
+          routeKey: 'plugin_charts',
+          routePath: '/plugin/charts',
+          children: [
+            {
+              key: 'plugin_charts_antv',
+              label: 'AntV',
+              i18nKey: 'route.plugin_charts_antv',
+              routeKey: 'plugin_charts_antv',
+              routePath: '/plugin/charts/antv'
+            },
+            {
+              key: 'plugin_charts_echarts',
+              label: 'ECharts',
+              i18nKey: 'route.plugin_charts_echarts',
+              routeKey: 'plugin_charts_echarts',
+              routePath: '/plugin/charts/echarts'
+            },
+            {
+              key: 'plugin_charts_vchart',
+              label: 'VChart',
+              i18nKey: 'route.plugin_charts_vchart',
+              routeKey: 'plugin_charts_vchart',
+              routePath: '/plugin/charts/vchart'
+            }
+          ]
+        },
+        {
+          key: 'plugin_copy',
+          label: '剪贴板',
+          i18nKey: 'route.plugin_copy',
+          routeKey: 'plugin_copy',
+          routePath: '/plugin/copy'
+        },
+        {
+          key: 'plugin_editor',
+          label: '编辑器',
+          i18nKey: 'route.plugin_editor',
+          routeKey: 'plugin_editor',
+          routePath: '/plugin/editor',
+          children: [
+            {
+              key: 'plugin_editor_markdown',
+              label: 'MD 编辑器',
+              i18nKey: 'route.plugin_editor_markdown',
+              routeKey: 'plugin_editor_markdown',
+              routePath: '/plugin/editor/markdown'
+            },
+            {
+              key: 'plugin_editor_quill',
+              label: '富文本编辑器',
+              i18nKey: 'route.plugin_editor_quill',
+              routeKey: 'plugin_editor_quill',
+              routePath: '/plugin/editor/quill'
+            }
+          ]
+        },
+        {
+          key: 'plugin_excel',
+          label: 'Excel',
+          i18nKey: 'route.plugin_excel',
+          routeKey: 'plugin_excel',
+          routePath: '/plugin/excel'
+        },
+        {
+          key: 'plugin_gantt',
+          label: '甘特图',
+          i18nKey: 'route.plugin_gantt',
+          routeKey: 'plugin_gantt',
+          routePath: '/plugin/gantt',
+          children: [
+            {
+              key: 'plugin_gantt_dhtmlx',
+              label: 'dhtmlxGantt',
+              i18nKey: 'route.plugin_gantt_dhtmlx',
+              routeKey: 'plugin_gantt_dhtmlx',
+              routePath: '/plugin/gantt/dhtmlx'
+            },
+            {
+              key: 'plugin_gantt_vtable',
+              label: 'VTableGantt',
+              i18nKey: 'route.plugin_gantt_vtable',
+              routeKey: 'plugin_gantt_vtable',
+              routePath: '/plugin/gantt/vtable'
+            }
+          ]
+        },
+        {
+          key: 'plugin_icon',
+          label: '图标',
+          i18nKey: 'route.plugin_icon',
+          routeKey: 'plugin_icon',
+          routePath: '/plugin/icon'
+        },
+        {
+          key: 'plugin_map',
+          label: '地图',
+          i18nKey: 'route.plugin_map',
+          routeKey: 'plugin_map',
+          routePath: '/plugin/map'
+        },
+        {
+          key: 'plugin_pdf',
+          label: 'PDF 预览',
+          i18nKey: 'route.plugin_pdf',
+          routeKey: 'plugin_pdf',
+          routePath: '/plugin/pdf'
+        },
+        {
+          key: 'plugin_pinyin',
+          label: '拼音',
+          i18nKey: 'route.plugin_pinyin',
+          routeKey: 'plugin_pinyin',
+          routePath: '/plugin/pinyin'
+        },
+        {
+          key: 'plugin_print',
+          label: '打印',
+          i18nKey: 'route.plugin_print',
+          routeKey: 'plugin_print',
+          routePath: '/plugin/print'
+        },
+        {
+          key: 'plugin_swiper',
+          label: 'Swiper',
+          i18nKey: 'route.plugin_swiper',
+          routeKey: 'plugin_swiper',
+          routePath: '/plugin/swiper'
+        },
+        {
+          key: 'plugin_tables',
+          label: '表格',
+          i18nKey: 'route.plugin_tables',
+          routeKey: 'plugin_tables',
+          routePath: '/plugin/tables',
+          children: [
+            {
+              key: 'plugin_tables_vtable',
+              label: 'VTable',
+              i18nKey: 'route.plugin_tables_vtable',
+              routeKey: 'plugin_tables_vtable',
+              routePath: '/plugin/tables/vtable'
+            }
+          ]
+        },
+        {
+          key: 'plugin_typeit',
+          label: '打字机',
+          i18nKey: 'route.plugin_typeit',
+          routeKey: 'plugin_typeit',
+          routePath: '/plugin/typeit'
+        },
+        {
+          key: 'plugin_video',
+          label: '视频',
+          i18nKey: 'route.plugin_video',
+          routeKey: 'plugin_video',
+          routePath: '/plugin/video'
+        }
+      ]
+    },
+    {
       key: 'multi-menu',
       label: '多级菜单',
       i18nKey: 'route.multi-menu',
@@ -109,6 +470,43 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
           ]
         }
       ]
+    },
+    {
+      key: 'manage',
+      label: '系统管理',
+      i18nKey: 'route.manage',
+      routeKey: 'manage',
+      routePath: '/manage',
+      children: [
+        {
+          key: 'manage_user',
+          label: '用户管理',
+          i18nKey: 'route.manage_user',
+          routeKey: 'manage_user',
+          routePath: '/manage/user'
+        },
+        {
+          key: 'manage_role',
+          label: '角色管理',
+          i18nKey: 'route.manage_role',
+          routeKey: 'manage_role',
+          routePath: '/manage/role'
+        },
+        {
+          key: 'manage_menu',
+          label: '菜单管理',
+          i18nKey: 'route.manage_menu',
+          routeKey: 'manage_menu',
+          routePath: '/manage/menu'
+        }
+      ]
+    },
+    {
+      key: 'about',
+      label: '关于',
+      i18nKey: 'route.about',
+      routeKey: 'about',
+      routePath: '/about'
     }
   ]);
   const searchMenus = computed(() => transformMenuToSearchMenus(menus.value));

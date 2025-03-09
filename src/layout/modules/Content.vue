@@ -142,6 +142,14 @@ const layoutConfig: LayoutConfig = {
   width: 16px;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
 .layout-header {
   height: 16px;
   border-radius: 4px;
