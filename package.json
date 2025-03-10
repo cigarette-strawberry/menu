@@ -32,6 +32,7 @@
     "unplugin-vue-components": "^28.4.1",
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2",
-    "vue-tsc": "^2.2.2"
+    "vue-tsc": "^2.2.2",
+    "vue-ueditor-wrap": "3.x"
   }
 }

@@ -9,6 +9,7 @@ const themeStore = useThemeStore();
 
 function handleChangeMode(mode: ThemeLayoutMode) {
   themeStore.layout.mode = mode;
+  console.log(msg.value);
 }
 
 type ThemeLayoutMode = 'vertical' | 'horizontal' | 'vertical-mix' | 'horizontal-mix';
@@ -55,6 +56,15 @@ const themeLayoutModeRecord = {
   'vertical-mix': '左侧菜单混合布局',
   horizontal: '顶部菜单模式',
   'horizontal-mix': '顶部菜单混合模式'
+};
+
+const msg = ref('');
+
+const editorConfig = {
+  // 访问 UEditor 静态资源的根路径，可参考 https://hc199421.gitee.io/vue-ueditor-wrap/#/faq
+  UEDITOR_HOME_URL: '/UEditor/',
+  // 服务端接口（这个地址是我为了方便各位体验文件上传功能搭建的临时接口，请勿在生产环境使用！！！）
+  serverUrl: '//ueditor.zhenghaochuan.com/cos'
 };
 </script>
 
@@ -103,6 +113,8 @@ const themeLayoutModeRecord = {
         </ElTooltip>
       </div>
     </div>
+
+    <vue-ueditor-wrap v-model="msg" :config="editorConfig" editor-id="editor-demo-01"></vue-ueditor-wrap>
   </div>
 </template>
 
