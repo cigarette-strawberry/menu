@@ -49,6 +49,13 @@ const layoutConfig: LayoutConfig = {
     mainClass: 'w-2/3 h-3/4'
   }
 };
+
+const themeLayoutModeRecord = {
+  vertical: '左侧菜单布局',
+  'vertical-mix': '左侧菜单混合布局',
+  horizontal: '顶部菜单模式',
+  'horizontal-mix': '顶部菜单混合模式'
+};
 </script>
 
 <template>
@@ -63,16 +70,16 @@ const layoutConfig: LayoutConfig = {
         @click="handleChangeMode(key)">
         <ElTooltip :placement="item.placement">
           <template #content>
-            {{ key }}
+            {{ themeLayoutModeRecord[key] }}
           </template>
-          <div class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
+          <div v-if="key === 'vertical'" class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
             <div class="layout-sider h-full w-18px"></div>
             <div class="vertical-wrapper">
               <div class="layout-header"></div>
               <div class="layout-main"></div>
             </div>
           </div>
-          <div class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
+          <div v-if="key === 'vertical-mix'" class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
             <div class="layout-sider h-full w-8px"></div>
             <div class="layout-sider h-full w-16px"></div>
             <div class="vertical-wrapper">
@@ -80,13 +87,13 @@ const layoutConfig: LayoutConfig = {
               <div class="layout-main"></div>
             </div>
           </div>
-          <div class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
+          <div v-if="key === 'horizontal'" class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
             <div class="layout-header"></div>
             <div class="horizontal-wrapper">
               <div class="layout-main"></div>
             </div>
           </div>
-          <div class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
+          <div v-if="key === 'horizontal-mix'" class="mode" :class="[key.includes('vertical') ? 'flex' : 'flex-col']">
             <div class="layout-header"></div>
             <div class="horizontal-wrapper">
               <div class="layout-sider w-18px"></div>
